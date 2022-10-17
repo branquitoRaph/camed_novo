@@ -1,0 +1,263 @@
+/* Gerais */
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.row {
+	margin: 0;
+}
+
+.container {
+	padding: 70px 0;
+}
+
+p, li {
+	color: #444;
+	font-size: 14px;
+}
+
+/* Barra de navegação */
+header, .navbar {
+	background-color: #63B8FF;
+}
+
+#nav-container {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#logo {
+	width: 75px;
+}
+
+.navbar-brand {
+	padding: 0;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.navbar-brand:hover {
+	color: #FFFFFF;
+}
+
+#navbar-links a {
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.navbar-expand-lg .navbar-nav .nav-links {
+	padding: 1rem .8rem;
+}
+
+/* Slider */
+.container-fluid {
+	padding: 0;
+}
+
+#mainSlider .carousel-inner, #mainSlider .carousel-item {
+	height: 80vh;
+}
+
+#mainSlider .carousel-caption {
+	top: 30%;
+}
+
+#mainSlider .carousel-caption h2 {
+	font-size: 50px;
+	margin-bottom: 30px;
+}
+
+#mainSlider .carousel-caption p {
+	font-size: 22px;
+	font-weight: 300;
+	margin-bottom: 100px;
+}
+
+.main-btn {
+	background-color: #65DAF9;
+	color: #FFF;
+	text-transform: uppercase;
+	width: 200px;
+	height: 60px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	border: 3px solid transparent;
+	transition: .5s;
+}
+
+.main-btn:hover {
+	text-decoration: none;
+	color: #FFF;
+	background-color: transparent;
+	border-color: #65DAF9;
+}
+
+.carousel-indicators .active {
+	border-color: #000000;
+}
+
+/* Sobre a camed */
+#about-area {
+	background-color: #F9F9F9;
+}
+
+.main-title {
+	color: #444;
+	margin: 0 0 65px 0;
+	font-size: 40px;
+	text-align: center;
+}
+
+.main-title::after {
+	content: "";
+	border-top: 2px solid #333;
+	width: 15%;
+	position: absolute;
+	top: 60px;
+	left: 42.5%;
+}
+
+.about-title {
+	font-size: 17px;
+	color: #444;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#about-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+#about-list li {
+	line-height: 30px;
+}
+
+#about-list i {
+	color: #65DAF9;
+	margin-right: 15px;
+}
+
+/* Sintomas */
+.service-box {
+	text-align: center;
+	margin-bottom: 50px
+}
+
+.service-box h4 {
+	font-size: 24px;
+	margin-bottom: 20px;
+	transition: .5s;
+}
+
+.div-select {
+	width: 350px;
+	overflow: hidden;
+}
+
+.div-select select {
+	background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #63B8FF;
+	background-position: 205px center;
+	width: 175px;
+	height: 45px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	/*padding: 13px 20px 13px 12px;*/
+	color: #fff;
+	text-indent: 0.01px;
+	text-overflow: "";
+	padding: 10px 20px;
+	border-radius: 30px;
+}
+
+.div-select select::-ms-expand {
+	display: none;
+}
+
+/* Notícias */
+#noticias {
+	background-color: #F9F9F9;
+}
+
+.card-body {
+	text-align: center;
+}
+
+/* Footer */
+#contact-area {
+	text-align: center;
+}
+
+.contact-box {
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+	border-bottom: 1px solid #63B8FF;
+}
+
+.contact-box i {
+	color: #444;
+	border: solid 1px #444;
+	border-radius: 50px;
+	width: 55px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.contact-box p {
+	font-size: 16px;
+}
+
+.contact-title {
+	font-weight: bold;
+	color: #63B8FF;
+}
+
+#msg-box p {
+	font-size: 22px;
+}
+
+#contact-form input[type="text"], #contact-form input[type="email"], #contact-form textarea {
+	margin-bottom: 15px;
+	border-radius: 0;
+}
+
+#contact-form .main-btn {
+	width: 200px;
+	height: 60px;
+	background-color: #63B8FF;
+}
+
+#contact-form .main-btn:hover {
+	color: #65DAF9;
+}
+
+/* Copyriht*/
+#copy-area {
+	background-color: #63B8FF;
+}
+
+#copy-area .container {
+	padding: 10px 0;
+	text-align: center;
+}
+
+#copy-area .container p {
+	margin-bottom: 0;
+}
+
+#copy-area .container a {
+	font-weight: bold;
+	color: #444;
+}
+
+#copy-area .container a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* Login */
+#h1l {
+	text-align: center;
+}
