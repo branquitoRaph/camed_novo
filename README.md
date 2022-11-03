@@ -1,6 +1,6 @@
 # Repositório do projeto Camed
-## Feito por Raphael Branco
-### O que falta fazer ainda
+## Feito por Raphael Branco, João Eid e Jonathan Castro
+### O que falta fazer ainda:
 <ul>
   <li>Adaptar o contato para PDO</li>
   <li>Fazer a página Farmácia VS Preço</li>
