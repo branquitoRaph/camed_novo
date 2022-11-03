@@ -24,11 +24,11 @@
 						<p>Ou, nos deixe uma mensagem:</p>
 					</div>
 					<div class = "col-md-6" id = "contact-form">
-						<form action="home.php" method="POST">
-							<input type = "email" class = "form-control" id = "email" name = "email" placeholder = "Digite seu e-mail">
+						<form action="enviarMensagem.php" method="POST">
+							<input type = "email" class = "form-control" id = "email" name = "emailContato" placeholder = "Digite seu e-mail">
 							<input type = "text" class = "form-control" placeholder =  "Infome a categoria: Elogio, Sugestão ou Crítica" name = "assunto" id = "assunto">
 							<textarea class = "form-control" rows = "3" placeholder = "Sua mensagem" name = "msg"></textarea>
-							<input type = "submit" class = "main-btn" value = "Enviar">
+							<input type = "submit" class = "main-btn" value = "Enviar" name = "Enviar">
 						</form>
 					</div>
 				</div>
