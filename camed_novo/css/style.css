@@ -261,3 +261,24 @@ header, .navbar {
 #h1l {
 	text-align: center;
 }
+
+/* Tabela Medicamento */
+table {
+	background: #AEDAFD;
+	border-color: #c1e3fd;
+	border-style: outset; 
+	text-align: center;
+}
+
+tr{
+	text-align: center;
+}
+
+th{
+	background: #274863;
+	color: white;
+}
+
+td {
+	text-align: center;
+}
