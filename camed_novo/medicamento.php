@@ -81,7 +81,7 @@ class Medicamento extends CRUD{
 		$stmt = Database::prepare($sql);
 		$stmt->bindParam(':idsintoma', $id_sintoma, PDO::PARAM_INT);
 		$stmt->execute();
-		return $stmt->fetchAll(PDO::FETCH_BOTH);	
+		return $stmt->fetchAll(PDO::FETCH_BOTH);
 	}
 	
 	public function insert(){
