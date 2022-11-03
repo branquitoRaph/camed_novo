@@ -23,7 +23,7 @@ class Usuario extends CRUD{
 	
 	protected $table ='usuario';
 	
-	private $idUsuario
+	private $idUsuario;
 	private $nome;
 	private $senha;
 	private $nascimento;
@@ -70,7 +70,7 @@ class Usuario extends CRUD{
 		$this->emailUsuario = $email;
 	}
 	public function getEmail($email){
-			return $this->emailUsuario;
+		return $this->emailUsuario;
 	}
 	
 	public function insert(){
@@ -85,7 +85,7 @@ class Usuario extends CRUD{
 		
 	}
 	
-	public function logar(){
+	/*public function logar(){
 		$sql = "SELECT idUsuario, emailUsuario FROM $this->table WHERE emailUsuario = :email and senha = :senha";
 		$stmt = Database::prepare($sql);
 		$stmt->bindParam(":idUsuario", $this->idUsuario);
@@ -95,6 +95,7 @@ class Usuario extends CRUD{
 
 		return $stmt->fetch();
 	}
+	*/
 }
 
 ?>
