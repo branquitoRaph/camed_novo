@@ -3,10 +3,10 @@
 session_start();
 //Conexão
 require_once 'conexao.php';
+//<!-- Criando o corpo da página-->
+//<!-- Chamando o cabeçalho da página-->
+include_once 'header2.php';
 ?>
-<!-- Criando o corpo da página-->
-<!-- Chamando o cabeçalho da página-->
-<?php include_once 'header2.php';?>
 	<!-- Título com tamanho em h1-->
 	<div id = "cadastro">
 		<br>
@@ -48,4 +48,4 @@ require_once 'conexao.php';
 		</div>
 	</div>
 <!-- Chamando o rodapé-->
-<?php include_once 'footer2.php';?>
+<?php include_once 'footer.php';?>
