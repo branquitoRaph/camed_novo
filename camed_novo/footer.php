@@ -8,7 +8,7 @@
 					</div>
 					<div class = "col-md-4 contact-box">
 						<i class="fa fa-phone" aria-hidden="true"></i>
-						<p><span class = "contact-title">Ligue para: </span>+55 (27) 3328-9661</p>
+						<p><span class = "contact-title">Ligue para: </span>+55 (27) 3065-9289</p>
 						<p><span class = "contact-title">Horários: </span>08:00 - 17:00</p>
 					</div>
 					<div class = "col-md-4 contact-box">
@@ -41,10 +41,10 @@
 				</div>
 			</div>
 		</div>
-<!-- Fechando o rodapé-->
-</footer>
-<!-- Fechando o corpo da página-->
-	<script>src="js/script.js"</script>
+	<!-- Fechando o rodapé-->
+	</footer>
+	<script src="js/script.js"></script>
+	<!-- Fechando o corpo da página-->
 </body>
 <!-- Fechando o arquivo html-->
 </html>
