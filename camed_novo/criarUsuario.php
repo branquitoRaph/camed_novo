@@ -31,7 +31,7 @@ if(isset($_POST['Enviar'])):
 	
 	if($usuario->insert()):
 		$_SESSION['mensagem'] = "Cadastro com sucesso!";
-		header('Location: login.php');
+		header('Location: formEnd.php');
 	else:
 		$_SESSION['mensagem'] = "Erro ao cadastrar!";
 		header('Location: cadastro.php');
