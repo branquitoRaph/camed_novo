@@ -3,45 +3,8 @@
 session_start();
 //Conexão
 require_once 'conexao.php';
-//Se existir o "Enviar" , é porque clicaram no botão
-if(isset($_POST['Enviar'])):
-	//Limpa os dados dos campos e envia pelo método POST para o arquivo de conexão
-	$cep = mysqli_escape_string($conexao, $_POST['cep']);
-	$logradouro = mysqli_escape_string($conexao, $_POST['logradouro']);
-	$numero = mysqli_escape_string($conexao, $_POST['numero']);
-	$cep = mysqli_escape_string($conexao, $_POST['complemento']);
-	$bairro = mysqli_escape_string($conexao, $_POST['bairro']);
-	$municipio = mysqli_escape_string($conexao,$_POST['municipio']);
-	$uf = mysqli_escape_string($conexao,$_POST['uf']);
-	//Sanitizando os campos de nome e sobrenome
-	$bairroSanitize = filter_var($bairro, FILTER_SANITIZE_STRING);
-	//$municipioSanitize = filter_var($municipio, FILTER_SANITIZE_STRING);
-	//$ufSanitize = filter_var($uf, FILTER_SANITIZE_STRING);
-	//Fazendo o comando para o SQL
-	$sql="INSERT INTO endereco(numero, CEP, descricao) VALUES ($numero, '$cep', '$logradouro');
-	INSERT INTO bairro(descriBairro) VALUES ('$bairroSanitize');
-	INSERT INTO municipio(descriMunicipio) VALUES ('$municipio');
-	INSERT INTO estado(descriEstado) VALUES ('$uf');";
-	
-	//var_dump ($sql);
-	//Condição de que se foi enviado
-	if(mysqli_query($conexao, $sql)):
-		//Irá fazer a sessão da mensagem (Cadastrado com sucesso)
-		$_SESSION['mensagem'] = "Cadastrado com sucesso!";
-		echo "entrei";
-		//E manda para o login
-		header('Location: login.php');
-	//Se não
-	else:
-		//Mostra a mensagem Erro ao cadastrar
-		$_SESSION['mensagem'] = "Erro ao cadastrar!";
-	//Fecha os ifs
-	endif;
-endif;
+include_once 'header2.php';
 ?>
-<!-- Criando o corpo da página-->
-<!-- Chamando o cabeçalho da página-->
-<?php include_once 'header2.php';?>
 	<!-- Título com tamanho em h1-->
 	<div id = "cadastro">
 		<br>
@@ -51,7 +14,7 @@ endif;
 				<div class = "col-md-10 mx-auto col-lg-5">
 					<h1 id = "h1l">Endereço</h1>
 					<!-- Abrindo um formulário para Cadastro-->
-					<form class = "p-4 p-md-5 border rounded-3 bg-light" action="formEnd.php" method="POST">
+					<form class = "p-4 p-md-5 border rounded-3 bg-light" action="criarEndereco.php" method="POST">
 						<div class="form-group">
 							<label for="cep">CEP</label>
 							<input type="text" class="form-control" id = "cep" placeholder = "CEP (Código de Endereço Postal)" pattern = "[0-9]{5}[0-9]{3}" name = "cep" required title = "CEP">
@@ -73,12 +36,12 @@ endif;
 							<input type="text" class="form-control" id = "bairro" name = "bairro" placeholder = "Bairro" title = "Bairro">
 						</div>
 						<div class="form-group">
-							<label for="cidade">Cidade</label>
+							<label for="cidade">Município</label>
 							<input type="text" class="form-control" id = "cidade" name = "cidade" placeholder = "Município" title = "Município">
 						</div>
 						<div class="form-group">
 							<label for="uf">Estado</label>
-							<select id="uf" class="form-control">
+							<select id="uf" class="form-control" name = "estado">
 								<option value="AC">Acre</option>
 								<option value="AL">Alagoas</option>
 								<option value="AP">Amapá</option>
@@ -145,5 +108,5 @@ endif;
 		</div>
 	</div>
 <!-- Chamando o rodapé-->
-<?php include_once 'footer2.php';?>
+<?php include_once 'footer.php';?>
 
