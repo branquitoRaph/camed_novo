@@ -42,10 +42,8 @@ if (isset($_POST['Enviar'])):
 		endif;
 	endif;
 endif;
-?>
-<!-- Chamando o cabeçalho da página-->
-<?php include_once 'header2.php';?>
-<?php
+//<!-- Chamando o cabeçalho da página-->
+include_once 'header2.php';
 	//Condição de checamento de dados
 	if(!empty($erros)):
 		//Loop de erro
