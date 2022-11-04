@@ -1,6 +1,8 @@
 <?php
 
+require_once 'conexao.php';
 require_once 'crud.php';
+include_once 'database.php';
 
 /**
 Objetivo: Classe responsável por representar todas as operações com o usuario
@@ -95,6 +97,38 @@ class Usuario extends CRUD{
 
 		return $stmt->fetch();
 	}
+	
+	public function excluir($idUsuario){
+		$sql2="SELECT * FROM livro_pessoa_avalia WHERE fk_pessoa_codigo_pessoa = :id";
+		$stmt2 = Database::prepare($sql2);	
+		$stmt2->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt2->execute();
+		$dados = $stmt2->fetch();
+
+		$sql3="SELECT * FROM livro_pessoa_loca WHERE fk_pessoa_codigo_pessoa = :id";
+		$stmt3 = Database::prepare($sql3);	
+		$stmt3->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt3->execute();
+		$dados1 = $stmt3->fetch();
+		if($dados1['fk_pessoa_codigo_pessoa']){
+			$sql4="DELETE FROM livro_pessoa_loca WHERE fk_pessoa_codigo_pessoa = :id";
+			$stmt4 = Database::prepare($sql4);	
+			$stmt4->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt4->execute();
+		}
+
+		if($dados['fk_pessoa_codigo_pessoa']){
+			$sql1="DELETE FROM livro_pessoa_avalia WHERE fk_pessoa_codigo_pessoa = :id";
+			$stmt1 = Database::prepare($sql1);	
+			$stmt1->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt1->execute();
+		}
+
+		$sql="DELETE FROM pessoa WHERE codigo_pessoa = :id";
+		$stmt = Database::prepare($sql);	
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		return $stmt->execute();
+		}
 	*/
 }
 
