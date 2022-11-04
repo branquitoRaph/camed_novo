@@ -26,10 +26,8 @@ if(isset($_POST['Enviar'])):
 	
 	if($mensagem->insert()):
 		$_SESSION['mensagem'] = "Mensagem enviada com sucesso!";
-		header('Location: login.php');
 	else:
 		$_SESSION['mensagem'] = "Erro no envio da mensagem!";
-		header('Location: cadastro.php');
 	endif;
 endif;
 
