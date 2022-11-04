@@ -77,7 +77,7 @@ class Medicamento extends CRUD{
 	}
 	
 	public function  findbySintoma($id_sintoma){
-		$sql = "SELECT sintoma.nomeSintoma , medicamento.nomeMedicamento as nome, medicamento.PMVC, medicamento.necessarioReceita FROM sintoma,sintoma_medicamento, medicamento WHERE sintoma_medicamento.FK_SINTOMA_idSintoma = sintoma.idSintoma AND sintoma_medicamento.FK_MEDICAMENTO_idMedicamento = medicamento.idMedicamento AND sintoma.idSintoma= :idsintoma";			
+		$sql = "SELECT sintoma.nomeSintoma , medicamento.nomeMedicamento as nome, medicamento.PMVC, medicamento.necessarioReceita FROM sintoma,sintoma_medicamento, medicamento WHERE sintoma_medicamento.FK_SINTOMA_idSintoma = sintoma.idSintoma AND sintoma_medicamento.FK_MEDICAMENTO_idMedicamento = medicamento.idMedicamento AND sintoma.idSintoma= :idsintoma";
 		$stmt = Database::prepare($sql);
 		$stmt->bindParam(':idsintoma', $id_sintoma, PDO::PARAM_INT);
 		$stmt->execute();
