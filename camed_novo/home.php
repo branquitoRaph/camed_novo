@@ -64,11 +64,11 @@
 							<p>Temos como objetivo te ajudar a encontrar o medicamento que você precisa</p>
 							<p>Outros diferenciais:</p>
 							<ul id = "about-list">
-								<li><i class = "fas fa-check"></i>Acesso ao PMVC (Preço Máximo Vendido ao Consumidor</li>
-								<li><i class = "fas fa-check"></i>Encontra a bula do medicamento</li>
-								<li><i class = "fas fa-check"></i>Indica se o medicamento precisa ou não de prescrição médica</li>
-								<li><i class = "fas fa-check"></i>Segurança das informações</li>
-								<li><i class = "fas fa-check"></i>Tabela de comparação do PMVC com o preço encontrado nas farmácias</li>
+								<li><i class = "fas fa-check"></i>Acesso ao PMVC (Preço Máximo Vendido ao Consumidor);</li>
+								<li><i class = "fas fa-check"></i>Encontra a bula do medicamento;</li>
+								<li><i class = "fas fa-check"></i>Indica se o medicamento precisa ou não de prescrição médica;</li>
+								<li><i class = "fas fa-check"></i>Segurança das informações;</li>
+								<li><i class = "fas fa-check"></i>Tabela de comparação do PMVC com o preço encontrado nas farmácias.</li>
 							</ul>
 							<p>Este trabalho está em desenvolvimento. As funcionalidades serão aprimoradas para ajudar cada vez mais vocês!</p>
 						</div>
