@@ -12,11 +12,12 @@ $sintoma= $_POST['sintomas'];
 	if (count($tabela)>0):
 		foreach($tabela as $linha){
 			$receita = $linha['necessarioReceita'];
-			if ($receita==1):
-				$receita = 'Precisa de receita';
+			if ($receita==="1"):
+				$receita = "Precisa de receita";
 			else:
-				$receita = 'Não precisa de receita';
-			endif
+				$receita = "Não precisa de receita";
+			endif;
+			$linha['necessarioReceita']= $receita;
 			?>
 	<!-- Criando a parte principal da página-->
 	<div class = "container">
@@ -37,7 +38,7 @@ $sintoma= $_POST['sintomas'];
 						<tr>
 							<td><?php echo $linha['nome'];?></td>
 							<td><?php echo $linha['PMVC'];?></td>
-							<td><?php echo $linha[$receita];?></td>
+							<td><?php echo $linha['necessarioReceita'];?></td>
 						</tr>
 						<?php 
 						} 
