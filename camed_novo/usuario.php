@@ -87,17 +87,17 @@ class Usuario extends CRUD{
 		
 	}
 	
-	/*public function logar(){
+	public function logar(){
 		$sql = "SELECT idUsuario, emailUsuario FROM $this->table WHERE emailUsuario = :email and senha = :senha";
 		$stmt = Database::prepare($sql);
-		$stmt->bindParam(":idUsuario", $this->idUsuario);
+		//$stmt->bindParam(":idUsuario", $this->idUsuario);
 		$stmt->bindParam(":email", $this->emailUsuario);
 		$stmt->bindParam(":senha", $this->senha);
 		$stmt->execute();
 
 		return $stmt->fetch();
 	}
-	
+	/*
 	public function excluir($idUsuario){
 		$sql2="SELECT * FROM livro_pessoa_avalia WHERE fk_pessoa_codigo_pessoa = :id";
 		$stmt2 = Database::prepare($sql2);	
