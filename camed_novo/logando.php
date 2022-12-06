@@ -16,15 +16,13 @@
 			$usuario->setEmail($email);
 			$usuario->setSenha($cripto);
 			$consulta = $usuario->logar();
-			//echo 'entrou';
 			if ($consulta):
-			//Guardando os dados com a função mysqli_fetch_array
-				//$dados=mysqli_fetch_array($resultado);
-			//Sessão para logar o usuário
-			//$_SESSION['logado'] = true;
-			//Sessão para guardar o id do usuário logado
-			//$_SESSION['id'] = $dados[0];
-			//Manda o usuário para a página principal
+				//Sessão para logar o usuário
+				$_SESSION['logado'] = true;
+				$id = $usuario->getIdUsuario();
+				//Sessão para guardar o id do usuário logado
+				$id = $_SESSION['id'];
+				//Manda o usuário para a página principal
 				header('Location: home.php');
 			//Se não
 			else:
