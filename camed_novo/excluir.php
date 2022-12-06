@@ -59,4 +59,3 @@ endif;
 	</form>
 <!-- Chamando o rodapé-->
 <?php include_once 'footer.php';?>
-
