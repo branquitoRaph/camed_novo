@@ -1,6 +1,19 @@
 <?php
 //Chamando o arquivo de conexão
 require_once 'conexao.php';
+include_once 'usuario.php';
+//Verifica se o id do cliente está na URL da requisição HTTP
+if(isset($_GET['idUsuario'])):
+	//filter_var retorna false se o parâmetro não for inteiro, e caso contrário retorna um inteiro.
+	$id=filter_var($_GET['idUsuario'], FILTER_VALIDATE_INT);
+	if ($id):
+		$usuario = new Usuario();	
+		$linha = $usuario->find($id);
+	else:
+		echo "parâmetro inválido.";
+	endif;
+endif;
+/*
 if(session_status()=== PHP_SESSION_NONE){
 	session_start();
 	}
@@ -9,6 +22,7 @@ if(session_status()=== PHP_SESSION_NONE){
 		//Puxa o id com a session da página de login
 		$id = (int) $_SESSION['id'];
 	}
+*/
 ?>
 <!-- Chamando o cabeçalho da página-->
 <?php include_once 'header.php';?>
