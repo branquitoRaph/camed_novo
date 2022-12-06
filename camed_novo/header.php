@@ -9,23 +9,11 @@
 	if(session_status()=== PHP_SESSION_NONE) {
 			session_start();
 	}
-	//Condição para pegar o nome do usuário e guardar em uma variável
-	if($_SESSION['logado'] == true){
-		$id = (int) $_SESSION['id'];
-		//Comando sql para selecionar o nome do usuário a partir do id do usuário logado
-		$sql = "SELECT  nomeUsuario from usuario where $id = idUsuario;";
-		//Efetivamente pega os dados (conectando e mandando o comando)
-		$query = mysqli_query($conexao,$sql);
-		//Guarda usando a função mysqli_fecth_array
-		$resultado = mysqli_fetch_array($query);
-		//Atribui o valor recebido (indíce 0) para a variável $titulo
-		$titulo = $resultado[0];
-	}
 ?>
 	<!-- Codificação (especificações da página) -->
 	<meta http-equiv = "content-type" content = "text/html; charset=utf-8 unicode_ci">
 	<!-- Título da página-->
-	<title><?php echo $titulo;?></title>
+	<title>Ca'med</title>
 	<!-- Chamando o css externo (para estilizar a página)-->
 	<link href = "https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel = "stylesheet">
 	<link rel = "stylesheet" href="css/style.css" type="text/css" media="screen">
