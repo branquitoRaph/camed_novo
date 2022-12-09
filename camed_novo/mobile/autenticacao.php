@@ -39,7 +39,7 @@ function autenticar($db_con) {
 	if(!is_null($email)) {
 		
 		// realiza a consula no bd pelo usuário login
-		$consulta = $db_con->prepare("SELECT senha FROM USUARIO WHERE email='$email'");
+		$consulta = $db_con->prepare("SELECT senha FROM camed.USUARIO WHERE emailUsuario='$email'");
 		$consulta->execute();
 
 		// caso o usuário exista, obtem-se o token de autenticação e 
