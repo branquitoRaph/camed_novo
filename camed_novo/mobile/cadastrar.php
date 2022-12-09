@@ -7,15 +7,16 @@ if (isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['nascime
 	// o método trim elimina caracteres especiais/ocultos da string
 	$nome = trim($_POST['nome']);
 	$sobrenome = trim($_POST['sobrenome']);
-	$nascimento = trim($_POST['nascimento'];
-	$email = trim($_POST['email'];
-	$senha = trim($_POST['senha'];
+	$data = str_replace("/", "-", $_POST["nascimento"]);
+    	$nascimento = date('Y-m-d', strtotime($data));
+	$email = trim($_POST['email']);
+	$senha = trim($_POST['senha']);
 	// o bd não armazena diretamente a senha do usuário, mas sim 
 	// um código hash que é gerado a partir da senha.
 	$cripto = password_hash($senha, PASSWORD_DEFAULT);
 	// antes de registrar o novo usuário, verificamos se ele já
 	// não existe.
-	$existe = db_con->prepare("SELECT emailUsuario FROM USUARIO WHERE emailUsuario='$email'");
+	$existe = $db_con->prepare("SELECT emailUsuario FROM camed.USUARIO WHERE emailUsuario='$email'");
 	$existe->execute();
 	if ($existe->rowCount() > 0) { 
 		// se já existe um usuario para login
@@ -26,7 +27,7 @@ if (isset($_POST['nome']) && isset($_POST['sobrenome']) && isset($_POST['nascime
 	}
 	else {
 		// se o usuário ainda não existe, inserimos ele no bd.
-		$insere = db_con->prepare("INSERT INTO USUARIO(nomeUsuario, senha, dataNascimento, sobrenomeUsuario, emailUsuario) VALUES('$nome', '$cripto', '$nascimento', '$sobrenome', '$email')");
+		$insere = $db_con->prepare("INSERT INTO camed.USUARIO(nomeUsuario, senha, dataNascimento, sobrenomeUsuario, emailUsuario) VALUES('$nome', '$cripto','$nascimento' , '$sobrenome', '$email')");
 	 
 		if ($insere->execute()) {
 			// se a consulta deu certo, indicamos sucesso na operação.
