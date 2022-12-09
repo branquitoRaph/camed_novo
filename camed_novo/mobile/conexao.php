@@ -3,10 +3,10 @@
 // Abre uma conexao com o BD.
 
 $host        = "host = 127.0.0.1;";
-$port        = "port = 3307;";
+$port        = "port = 3306;";
 $dbname      = "dbname = camed;";
 $dbuser 	 = "root";
-$dbpassword	 = "usbw";
+$dbpassword	 = "serra";
 
 // para conectar ao mysql, substitua pgsql por mysql
 $db_con= new PDO('mysql:' . $host . $port . $dbname, $dbuser, $dbpassword);
