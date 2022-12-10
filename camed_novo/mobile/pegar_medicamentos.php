@@ -23,7 +23,7 @@ if(autenticar($db_con)) {
 	// Primeiro, verifica-se se todos os parametros foram enviados pelo cliente.
 	// limit - quantidade de produtos a ser entregues
 	// offset - indica a partir de qual produto começa a lista
-	if (isset($_GET['limit']) && isset($_GET['offset']) && isset($_GET['idSintoma']) {
+	if (isset($_GET['limit']) && isset($_GET['offset']) && isset($_GET['idSintoma'])) {
 	 
 		$limit = $_GET['limit'];
 		$offset = $_GET['offset'];
