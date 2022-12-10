@@ -3,26 +3,15 @@
 include_once 'medicamento.php';
 //capturando o sintoma
 $sintoma= $_POST['sintomas'];
+$medicamento = new Medicamento();
+$tabela = $medicamento->findbySintoma($sintoma);
 ?>
 <br>
 <br>
-<?php
-	$medicamento = new Medicamento();
-	$tabela = $medicamento->findbySintoma($sintoma);
-	if (count($tabela)>0):
-		foreach($tabela as $linha){
-			$receita = $linha['necessarioReceita'];
-			if ($receita==="1"):
-				$receita = "Precisa de receita";
-			else:
-				$receita = "Não precisa de receita";
-			endif;
-			$linha['necessarioReceita']= $receita;
-			?>
 	<!-- Criando a parte principal da página-->
 	<div class = "container">
 		<div class = "col-12">
-			<h3 class = "main-title"><?php echo "Sintoma escolhido: ". $linha['nomeSintoma'];?></h3>
+			<h3 class = "main-title"><?php echo 'Sintoma escolhido: '. $tabela[0]['nomeSintoma']?></h3>
 		</div>
 		<div id="conteudo">
 			<center>
@@ -35,6 +24,17 @@ $sintoma= $_POST['sintomas'];
 						</tr>
 					</thead>
 					<tbody>
+						<?php
+						if (count($tabela)>0):
+							foreach($tabela as $linha){
+								$receita = $linha['necessarioReceita'];
+								if ($receita==="1"):
+									$receita = "Precisa de receita";
+								else:
+									$receita = "Não precisa de receita";
+								endif;
+								$linha['necessarioReceita']= $receita;
+								?>
 						<tr>
 							<td><?php echo $linha['nome'];?></td>
 							<td><?php echo $linha['PMVC'];?></td>
