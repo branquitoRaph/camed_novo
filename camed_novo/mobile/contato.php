@@ -3,12 +3,13 @@ require_once('conexao.php');
 // array de resposta
 $resposta = array();
 // verifica se todos os campos necessários foram enviados ao servidor
-if (isset($_POST['descriCategoria']) && isset($_POST['descriMensagem'])) {
+if (isset($_POST['descriCategoria']) && isset($_POST['descriMensagem']) && isset($_POST['emailContato'])) {
 	// o método trim elimina caracteres especiais/ocultos da string
 	$descriCategoria = trim($_POST['descriCategoria']);
 	$descriMensagem = trim($_POST['descriMensagem']);
+	$emailContato = trim($_POST['emailContato']);
 	// se o usuário ainda não existe, inserimos ele no bd.
-	$insere = $db_con->prepare("INSERT INTO camed.MENSAGEM(descriMensagem, descriCategoria) VALUES('$descriMensagem', '$descriCategoria')");
+	$insere = $db_con->prepare("INSERT INTO camed.MENSAGEM(descriMensagem, descriCategoria, emailContato) VALUES('$descriMensagem', '$descriCategoria', '$emailContato')");
 		if ($insere->execute()) {
 			// se a consulta deu certo, indicamos sucesso na operação.
 			$resposta["sucesso"] = 1;
