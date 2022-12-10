@@ -5,90 +5,59 @@ include_once 'usuario.php';
 //Verifica se o id do cliente está na URL da requisição HTTP
 if(isset($_GET['idUsuario'])):
 	//filter_var retorna false se o parâmetro não for inteiro, e caso contrário retorna um inteiro.
-	$id=filter_var($_GET['idUsuario'], FILTER_VALIDATE_INT);
-	if ($id):
-		$usuario = new Usuario();	
-		$linha = $usuario->find($id);
+	$idUsuario=filter_var($_GET['idUsuario'], FILTER_VALIDATE_INT);
+	if ($idUsuario):
+		$usuario = new Usuario();
+		$linha = $usuario->find($idUsuario);
 	else:
 		echo "parâmetro inválido.";
 	endif;
 endif;
-/*
-if(session_status()=== PHP_SESSION_NONE){
-	session_start();
-	}
-	//Condição para pegar o nome do usuário e guardar em uma variável
-	if($_SESSION['logado'] == true){
-		//Puxa o id com a session da página de login
-		$id = (int) $_SESSION['id'];
-	}
-*/
 ?>
 <!-- Chamando o cabeçalho da página-->
 <?php include_once 'header.php';?>
 <br>
 <br>
 <!-- Div para separar o arquivo, afim de organização -->
-	<div class = "container">
-		<div class = "col-12">
-			<h3 class = "main-title">Gerenciamento de Conta</h3>
+	<div id = "atualizar">
+		<br>
+		<br>
+		<div class = "container">
+			<div class = "row açign-items-center">
+				<div class = "col-md-10 mx-auto col-lg-5">
+					<h1 id = "h1l">Gerenciamento de Conta</h1>
+					<!-- Abrindo um formulário para Cadastro-->
+					<form class = "p-4 p-md-5 border rounded-3 bg-light" action="alterar.php" method="POST">
+						<input type="hidden" name="idUsuario" value="<?php echo $linha['idUsuario']; ?>">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="fnome">Nome</label>
+								<input type="text" class="form-control" id = "fname" name = "nome" value = "<?php echo $linha['nomeUsuario']; ?>">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="sobrenome">Sobrenome</label>
+								<input type="text" class="form-control" id = "lname" name = "sobrenome" value = "<?php echo $linha['sobrenomeUsuario']; ?>">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email">E-mail</label>
+							<input type="email" class="form-control" id = "campo" name = "email" value = "<?php echo $linha['emailUsuario']; ?>">
+						</div>
+						<div class="form-group">
+							<label for="senha">Senha</label>
+							<input type="password" class="form-control" id = "pwd" name = "senha" minlength = "8" placeholder="Senha">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="dataNascimento">Data de Nascimento</label>
+								<input type="date" class="form-control" id = "fdata" name = "data" value = "<?php echo $linha['dataNascimento']; ?>">
+							</div>
+						</div>
+						<input type="submit" class="btn btn-primary btn-lg btn-block" name = "Enviar" value = "Atualizar">
+					</form>
+				</div>
+			</div>
 		</div>
-		<div id = "conteudo">
-			<!-- Centralizando e criando a tabela -->
-			<center>
-				<table class = "table table-hover">
-					<thead>
-							<tr>
-								<th scope="col">Nome</th>
-								<th scope="col">Sobrenome</th>
-								<th scope="col">Data de Nascimento</th>
-								<th scope="col">E-mail</th>
-								<th scope="col">Senha</th>
-							</tr>
-					</thead>
-					<tbody>
-						<?php
-						//Comando para pegar os dados da tabela medicamento
-						$sql="SELECT idUsuario, nomeUsuario, senha, dataNascimento, sobrenomeUsuario, emailUsuario from usuario WHERE idUsuario = $id";
-						//Pegando o resultado do comando
-						$resultado= mysqli_query($conexao,$sql);
-						//Condição se o número de linhas é maior que 0
-						if (mysqli_num_rows($resultado)>0):
-							//Loop para guardar os dados em uma variável
-							while($dados =mysqli_fetch_array($resultado)):
-						?>
-						<tr>
-							<td><?php echo $dados['nomeUsuario'];?></td>
-							<td><?php echo $dados['sobrenomeUsuario'];?></td>
-							<td><?php echo $dados['dataNascimento'];?></td>
-							<td><?php echo $dados['emailUsuario'];?></td>
-							<td><?php echo $dados['senha'];?></td>
-						</tr>
-						<?php 
-						//Fecha o loop
-						endwhile;
-						//Se não, tabela vazia
-						else: ?>
-						<tr class="tr">
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-						</tr>
-						<?php
-						//Fecha condição
-						endif;
-						?>
-						<!-- Fecha o corpo da tabela -->
-					</tbody>
-				<!-- Fecha a tabela e a centralização-->
-				</table>
-				<p>Deseja alterar alguma informação de sua conta? <a href="alterar.php">Clique aqui</a></p>
-				<p>Deseja apagar sua conta? <a href="excluir.php">Clique aqui</a></p>
-			</center>
-		</div>
-	<!-- Fecha a div -->
 	</div>
 <!-- Chamando o rodapé-->
 <?php include_once 'footer.php';?>
