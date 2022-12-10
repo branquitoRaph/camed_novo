@@ -21,7 +21,6 @@ if (isset($_POST['descriCategoria']) && isset($_POST['descriMensagem']) && isset
 			$resposta["erro"] = "erro BD: " . $insere->error;
 		}
 	}
-}
 else {
 	// se não foram enviados todos os parâmetros para o servidor, 
 	// indicamos que não houve sucesso
