@@ -90,12 +90,23 @@ class Usuario extends CRUD{
 	public function logar(){
 		$sql = "SELECT idUsuario, emailUsuario FROM $this->table WHERE emailUsuario = :email and senha = :senha";
 		$stmt = Database::prepare($sql);
-		//$stmt->bindParam(":idUsuario", $this->idUsuario);
+		$stmt->bindParam(":idUsuario", $this->idUsuario);
 		$stmt->bindParam(":email", $this->emailUsuario);
 		$stmt->bindParam(":senha", $this->senha);
 		$stmt->execute();
-
 		return $stmt->fetch();
+	}
+	
+	public function update($idUsuario){
+		$sql="UPDATE $this->table SET nomeUsuario = :nome, senha = :senha, dataNascimento = :nascimento , sobrenomeUsuario = :sobrenome, emailUsuario = :email WHERE idUsuario = :idUsuario ";
+		$stmt = Database::prepare($sql);
+		$stmt->bindParam(':nome', $this->nomeUsuario);
+		$stmt->bindParam(':senha', $this->senha);
+		$stmt->bindParam(':nascimento', $this->dataNascimento);
+		$stmt->bindParam(':sobrenome', $this->sobrenomeUsuario);
+		$stmt->bindParam(':email', $this->emailUsuario);
+		$stmt->bindParam(':idUsuario', $idUsuario, PDO::PARAM_INT);
+		return $stmt->execute();
 	}
 	/*
 	public function excluir($idUsuario){
