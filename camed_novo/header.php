@@ -44,7 +44,7 @@
 					<div class = "navbar-nav">
 						<a class = "nav-item nav-link" id = "home-menu" href = "home.php">Home</a>
 						<a class = "nav-item nav-link" id = "sobre-menu">Sobre</a>
-						<a class = "nav-item nav-link" id = "tabela-menu" href = "farmacia.php">Farmácia VS Preço</a>
+						<a class = "nav-item nav-link" id = "tabela-menu" href = "exibirfarmacia.php">Farmácia VS Preço</a>
 						<a class = "nav-item nav-link" id = "contact-area">Contato</a>
 						<a class = "nav-item nav-link" id = "services-menu" href = "gerenciamentodeconta.php">Gerenciamento de Conta</a>
 					</div>
